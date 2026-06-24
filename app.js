@@ -162,6 +162,7 @@ document.addEventListener('keydown', (event) => {
 });
 
 window.addEventListener('resize', () => updateHandlePosition(activeCategory));
+window.addEventListener('orientationchange', () => updateHandlePosition(activeCategory));
 window.addEventListener('load', () => {
   setActiveCategory('cars', { animate: false, scroll: false });
 });
