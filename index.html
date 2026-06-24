@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photographer Portfolio</title>
+    <meta name="description" content="A premium photography portfolio with immersive interactions." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-[#f9f9f9] text-[#111111]">
+    <header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#111111]/90 backdrop-blur-xl">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+        <a href="#home" class="text-[0.75rem] uppercase tracking-[0.45em] text-white">Aditya Amraotkar</a>
+        <div class="flex items-center gap-6 text-[0.7rem] uppercase tracking-[0.35em] text-white/80">
+          <a href="#work" class="transition hover:text-white">My Work</a>
+          <a href="#about" class="transition hover:text-white">About</a>
+          <a href="#contact" class="transition hover:text-white">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="relative min-h-screen overflow-hidden bg-[#111111] text-white">
+        <div id="hero-background" class="absolute inset-0 bg-[url('Scenery1.jpg')] bg-cover bg-center"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/65 via-black/35 to-black/70"></div>
+
+        <div class="relative z-10 flex min-h-screen flex-col">
+          <div class="mx-auto mt-28 flex w-full max-w-7xl flex-1 flex-col justify-center px-6 lg:px-8">
+            <div class="mb-8 flex items-center justify-between text-[0.65rem] uppercase tracking-[0.4em] text-white/75">
+              <span>Interactive Horizon</span>
+              <span>Luxury Editorial</span>
+            </div>
+
+            <div class="relative flex flex-1 items-center justify-center">
+              <div class="flex w-full max-w-3xl flex-col gap-4 px-4 sm:px-10">
+                <div class="slider-labels flex items-center justify-between">
+                  <button class="category-trigger text-[0.7rem] uppercase tracking-[0.45em] text-white/80 transition hover:text-white" data-category="cars">Cars</button>
+                  <button class="category-trigger text-[0.7rem] uppercase tracking-[0.45em] text-white/80 transition hover:text-white" data-category="scenery">Scenery</button>
+                  <button class="category-trigger text-[0.7rem] uppercase tracking-[0.45em] text-white/80 transition hover:text-white" data-category="portraits">Portraits & Events</button>
+                </div>
+                <div id="slider-track" class="relative h-10 w-full">
+                  <div class="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-white/70 to-transparent"></div>
+                  <div id="slider-handle" class="absolute top-1/2 flex h-12 w-12 -translate-y-1/2 -translate-x-1/2 cursor-grab items-center justify-center rounded-full border border-white/30 bg-white/15 text-white shadow-[0_0_40px_rgba(255,255,255,0.2)] backdrop-blur-md">
+                    <span class="text-[0.8rem]">⇅</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-10 flex flex-wrap items-end justify-between gap-8 pb-10 pt-12 text-white/75">
+              <p class="max-w-xl text-sm leading-7 text-white/70 sm:text-base">
+                A premium portfolio built around clean geometry, narrative pacing, and cinematic light.
+              </p>
+              <div class="text-[0.65rem] uppercase tracking-[0.4em] text-white/60">
+                Drag the horizon handle or tap a category to reveal a tailored gallery.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="transition-overlay" aria-hidden="true">
+          <div class="transition-panel transition-panel-left"></div>
+          <div class="transition-panel transition-panel-right"></div>
+        </div>
+      </section>
+
+      <section id="work" class="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-24">
+        <div class="mb-10 flex flex-col gap-3 border-b border-[#111111]/10 pb-6 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="text-[0.7rem] uppercase tracking-[0.4em] text-[#111111]/55">Selected Work</p>
+            <h2 class="font-serif text-3xl sm:text-4xl">My Work</h2>
+          </div>
+          <p class="max-w-xl text-sm leading-7 text-[#111111]/65 sm:text-base">
+            Each gallery is curated around a distinct atmosphere—movement, landscape, and intimate storytelling.
+          </p>
+        </div>
+
+        <div class="gallery-panels">
+          <div class="gallery-panel is-active" data-panel="cars">
+            <div class="mb-6 flex items-center justify-between">
+              <h3 class="text-[0.7rem] uppercase tracking-[0.45em] text-[#111111]/55">Cars</h3>
+              <span class="text-sm text-[#111111]/55">17 images</span>
+            </div>
+            <div class="gallery-grid">
+              <a href="#" class="gallery-card" data-lightbox="cars" data-index="0">
+                <img src="Car1.jpg" alt="Car detail in motion" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card tall" data-lightbox="cars" data-index="1">
+                <img src="Car2.jpg" alt="Architectural car composition" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card" data-lightbox="cars" data-index="2">
+                <img src="Car3.jpg" alt="Luminous car portrait" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card wide" data-lightbox="cars" data-index="3">
+                <img src="Car4.jpg" alt="Sunlit car profile" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card" data-lightbox="cars" data-index="4">
+                <img src="Car5.jpg" alt="Monochrome vehicle study" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card tall" data-lightbox="cars" data-index="5">
+                <img src="Car6.jpg" alt="Warm-toned car scene" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card" data-lightbox="cars" data-index="6">
+                <img src="Car7.jpg" alt="Minimalist car framing" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card wide" data-lightbox="cars" data-index="7">
+                <img src="Car8.jpg" alt="Cinematic vehicle capture" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card" data-lightbox="cars" data-index="8">
+                <img src="Car9.jpg" alt="Dynamic car silhouette" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card tall" data-lightbox="cars" data-index="9">
+                <img src="Car10.jpg" alt="Refined car detail" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card" data-lightbox="cars" data-index="10">
+                <img src="Car11.jpg" alt="Luxury automotive close-up" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card wide" data-lightbox="cars" data-index="11">
+                <img src="Car12.jpg" alt="Nightfall car portrait" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card" data-lightbox="cars" data-index="12">
+                <img src="Car13.jpg" alt="Editorial car composition" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card tall" data-lightbox="cars" data-index="13">
+                <img src="Car14.jpg" alt="Refined motion frame" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card" data-lightbox="cars" data-index="14">
+                <img src="Car15.jpg" alt="Sculpted automotive profile" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card wide" data-lightbox="cars" data-index="15">
+                <img src="Car16.jpg" alt="High contrast car still" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card" data-lightbox="cars" data-index="16">
+                <img src="Car17.jpg" alt="Final elegance in motion" loading="lazy" />
+              </a>
+            </div>
+          </div>
+
+          <div class="gallery-panel" data-panel="scenery">
+            <div class="mb-6 flex items-center justify-between">
+              <h3 class="text-[0.7rem] uppercase tracking-[0.45em] text-[#111111]/55">Scenery</h3>
+              <span class="text-sm text-[#111111]/55">7 images</span>
+            </div>
+            <div class="gallery-grid">
+              <a href="#" class="gallery-card tall" data-lightbox="scenery" data-index="0">
+                <img src="Scenery1.jpg" alt="Atmospheric shoreline" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card" data-lightbox="scenery" data-index="1">
+                <img src="Scenery2.jpg" alt="Quiet mountain vista" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card wide" data-lightbox="scenery" data-index="2">
+                <img src="Scenery3.jpg" alt="Open sky horizon" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card" data-lightbox="scenery" data-index="3">
+                <img src="Scenery4.jpg" alt="Golden canyon light" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card tall" data-lightbox="scenery" data-index="4">
+                <img src="Scenery5.jpg" alt="Minimal travel landscape" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card" data-lightbox="scenery" data-index="5">
+                <img src="Scenery6.jpg" alt="Dramatic evening horizon" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card wide" data-lightbox="scenery" data-index="6">
+                <img src="Scenery7.jpg" alt="Soft landscape still" loading="lazy" />
+              </a>
+            </div>
+          </div>
+
+          <div class="gallery-panel" data-panel="portraits">
+            <div class="mb-6 flex items-center justify-between">
+              <h3 class="text-[0.7rem] uppercase tracking-[0.45em] text-[#111111]/55">Portraits & Events</h3>
+              <span class="text-sm text-[#111111]/55">12 images</span>
+            </div>
+            <div class="gallery-grid">
+              <a href="#" class="gallery-card tall" data-lightbox="portraits" data-index="0">
+                <img src="Portrait1.jpg" alt="Editorial portrait" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card" data-lightbox="portraits" data-index="1">
+                <img src="Portrait2.jpg" alt="Quiet portrait study" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card wide" data-lightbox="portraits" data-index="2">
+                <img src="Portrait3.jpg" alt="Studio portrait frame" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card" data-lightbox="portraits" data-index="3">
+                <img src="Portrait4.jpg" alt="Natural portrait moment" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card tall" data-lightbox="portraits" data-index="4">
+                <img src="Event1.jpg" alt="Event atmosphere" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card" data-lightbox="portraits" data-index="5">
+                <img src="event2.jpg" alt="Gathering in motion" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card wide" data-lightbox="portraits" data-index="6">
+                <img src="Event3.jpg" alt="Candlelit celebration" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card" data-lightbox="portraits" data-index="7">
+                <img src="Event4.jpg" alt="Elegant event detail" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card tall" data-lightbox="portraits" data-index="8">
+                <img src="Event5.jpg" alt="Outdoor event scene" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card" data-lightbox="portraits" data-index="9">
+                <img src="Event6.jpg" alt="Soft evening gathering" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card wide" data-lightbox="portraits" data-index="10">
+                <img src="Event7.jpg" alt="Intimate event composition" loading="lazy" />
+              </a>
+              <a href="#" class="gallery-card" data-lightbox="portraits" data-index="11">
+                <img src="Event8.jpg" alt="Final celebration portrait" loading="lazy" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="border-t border-[#111111]/10 bg-white/70">
+        <div class="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 lg:py-24">
+          <div class="overflow-hidden rounded-[2rem] border border-[#111111]/10 bg-[#111111] p-4">
+            <img src="Portrait4.jpg" alt="Artist portrait" class="h-full min-h-[420px] w-full rounded-[1.4rem] object-cover grayscale" loading="lazy" />
+          </div>
+          <div class="flex flex-col justify-center">
+            <p class="mb-4 text-[0.7rem] uppercase tracking-[0.4em] text-[#111111]/55">About</p>
+            <h2 class="mb-6 font-serif text-4xl sm:text-5xl">Crafting quiet drama through light and form.</h2>
+            <p class="mb-4 max-w-2xl text-lg leading-8 text-[#111111]/70">
+              My work focuses on clean lines, thoughtful negative space, and natural light that lets the subject breathe.
+            </p>
+            <p class="mb-8 max-w-2xl text-base leading-8 text-[#111111]/60">
+              I document automobiles, landscapes, and intimate gatherings with an editorial eye shaped by calm, precision, and restraint.
+            </p>
+            <a href="#work" class="text-[0.7rem] uppercase tracking-[0.4em] text-[#111111] transition hover:opacity-70">View Portfolio</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-24">
+        <div class="grid gap-12 rounded-[2rem] border border-[#111111]/10 bg-[#111111] p-8 text-white lg:grid-cols-[0.9fr_1.1fr] lg:p-12">
+          <div class="space-y-6">
+            <p class="text-[0.7rem] uppercase tracking-[0.4em] text-white/55">Contact</p>
+            <h2 class="font-serif text-4xl leading-tight sm:text-5xl">Let's work together.</h2>
+            <div class="space-y-3 text-sm text-white/70">
+              <a href="mailto:studio@photographer.com" class="block transition hover:text-white">studio@photographer.com</a>
+              <a href="https://instagram.com" class="block transition hover:text-white">Instagram</a>
+              <a href="https://twitter.com" class="block transition hover:text-white">Twitter</a>
+            </div>
+          </div>
+
+          <form class="space-y-6">
+            <label class="block">
+              <span class="mb-2 block text-[0.7rem] uppercase tracking-[0.35em] text-white/55">Name</span>
+              <input type="text" class="w-full border-b border-white/20 bg-transparent pb-3 text-white outline-none transition focus:border-white" />
+            </label>
+            <label class="block">
+              <span class="mb-2 block text-[0.7rem] uppercase tracking-[0.35em] text-white/55">Email</span>
+              <input type="email" class="w-full border-b border-white/20 bg-transparent pb-3 text-white outline-none transition focus:border-white" />
+            </label>
+            <label class="block">
+              <span class="mb-2 block text-[0.7rem] uppercase tracking-[0.35em] text-white/55">Message</span>
+              <textarea rows="4" class="w-full resize-none border-b border-white/20 bg-transparent pb-3 text-white outline-none transition focus:border-white"></textarea>
+            </label>
+            <button type="submit" class="text-[0.7rem] uppercase tracking-[0.4em] text-white transition hover:opacity-70">Submit Inquiry</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+      <button class="lightbox-close" aria-label="Close lightbox">×</button>
+      <button class="lightbox-nav lightbox-prev" aria-label="Previous image">←</button>
+      <img id="lightbox-image" src="" alt="" />
+      <button class="lightbox-nav lightbox-next" aria-label="Next image">→</button>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
