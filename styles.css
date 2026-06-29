@@ -45,11 +45,11 @@ img {
   padding: 0.55rem 0.95rem;
   white-space: nowrap;
   min-height: 2.75rem;
-  font-size: clamp(0.8rem, 1.15vw, 1rem);
+  font-size: clamp(0.7rem, 0.95vw, 0.85rem);
   color: rgba(255, 255, 255, 0.95);
   border: none;
   border-radius: 999px;
-  background: rgba(12, 12, 12, 0.28);
+  background: rgba(12, 12, 12, 0.2);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
@@ -59,14 +59,14 @@ img {
 .category-trigger:hover,
 .category-trigger:focus-visible {
   color: white;
-  background: rgba(18, 18, 18, 0.36);
+  background: rgba(18, 18, 18, 0.28);
   transform: translateY(-1px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
 }
 
 .category-trigger.is-active {
   color: white;
-  background: rgba(24, 24, 24, 0.42);
+  background: rgba(24, 24, 24, 0.32);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
 }
 
