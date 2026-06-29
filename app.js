@@ -14,14 +14,27 @@ let activeCategory = 'cars';
 let lightboxItems = [];
 let currentLightboxIndex = 0;
 
+function isMobileLayout() {
+  return globalThis.matchMedia('(max-width: 639px)').matches;
+}
+
 function updateHandlePosition(category) {
   const button = document.querySelector(`.category-trigger[data-category="${category}"]`);
-  if (!button || !sliderTrack) return;
+  if (!button || !sliderTrack || !sliderHandle) return;
+
+  if (isMobileLayout()) {
+    sliderHandle.style.left = '50%';
+    sliderHandle.style.opacity = '0';
+    sliderHandle.style.pointerEvents = 'none';
+    return;
+  }
 
   const trackRect = sliderTrack.getBoundingClientRect();
   const buttonRect = button.getBoundingClientRect();
   const left = buttonRect.left - trackRect.left + buttonRect.width / 2;
   sliderHandle.style.left = `${Math.max(18, Math.min(trackRect.width - 18, left))}px`;
+  sliderHandle.style.opacity = '1';
+  sliderHandle.style.pointerEvents = 'auto';
 }
 
 function updateHeroBackground(category) {
@@ -47,7 +60,7 @@ function setActiveCategory(category, { animate = true, scroll = true } = {}) {
     panel.classList.toggle('is-active', panel.dataset.panel === category || (category === 'portraits' && panel.dataset.panel === 'portraits'));
   });
 
-  updateHandlePosition(category);
+  globalThis.requestAnimationFrame(() => updateHandlePosition(category));
   updateHeroBackground(category);
 
   if (animate) {
@@ -70,6 +83,8 @@ categoryButtons.forEach((button) => {
 });
 
 function handleTrackInteraction(clientX) {
+  if (isMobileLayout()) return;
+
   const rect = sliderTrack.getBoundingClientRect();
   const clamped = Math.min(Math.max(clientX - rect.left, 0), rect.width);
   const ratio = clamped / rect.width;
@@ -85,6 +100,7 @@ function handleTrackInteraction(clientX) {
 }
 
 sliderHandle.addEventListener('pointerdown', (event) => {
+  if (isMobileLayout()) return;
   event.preventDefault();
   sliderHandle.setPointerCapture(event.pointerId);
   handleTrackInteraction(event.clientX);
@@ -97,6 +113,7 @@ sliderHandle.addEventListener('pointermove', (event) => {
 });
 
 sliderTrack.addEventListener('pointerdown', (event) => {
+  if (isMobileLayout()) return;
   if (event.target === sliderTrack || event.target === sliderHandle) {
     handleTrackInteraction(event.clientX);
   }
@@ -161,8 +178,14 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
-window.addEventListener('resize', () => updateHandlePosition(activeCategory));
-window.addEventListener('orientationchange', () => updateHandlePosition(activeCategory));
-window.addEventListener('load', () => {
-  setActiveCategory('cars', { animate: false, scroll: false });
+globalThis.addEventListener('resize', () => {
+  globalThis.requestAnimationFrame(() => updateHandlePosition(activeCategory));
+});
+globalThis.addEventListener('orientationchange', () => {
+  globalThis.requestAnimationFrame(() => updateHandlePosition(activeCategory));
+});
+globalThis.addEventListener('load', () => {
+  globalThis.requestAnimationFrame(() => {
+    setActiveCategory('cars', { animate: false, scroll: false });
+  });
 });
