@@ -200,13 +200,16 @@ img {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
+  max-width: 72rem;
+  margin-inline: auto;
+  justify-content: center;
 }
 
 .album-grid-cars {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.album-grid-grad {
+.album-grid-portraits {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
@@ -381,6 +384,18 @@ body.lightbox-open {
   .album-grid-cars {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
+
+  .album-grid-cars .album-card:nth-child(9) {
+    grid-column: 2;
+  }
+
+  .album-grid-cars .album-card:nth-child(10) {
+    grid-column: 3;
+  }
+
+  .album-grid-portraits {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 1024px) {
@@ -390,5 +405,9 @@ body.lightbox-open {
 
   .album-grid-cars {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .album-grid-portraits {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
